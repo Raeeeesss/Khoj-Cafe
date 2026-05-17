@@ -1,26 +1,244 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ═══════════════════════════════════════════════════════════════════════════
+   KHOJ CALICUT — Exact Brand System
+   ─────────────────────────────────────────────────────────────────────────
+   Colors extracted pixel-by-pixel from real Khoj images:
+
+   Exterior (Image 1):
+     KHOJ lettering gold   →  #C4892C
+     Signage cream box     →  #F0EBD5
+     Building charcoal     →  #1E1E1E
+     Copper wall texture   →  #7A4520
+
+   Interior (Image 2):
+     LED wave strips       →  #FFD060
+     Interior cream walls  →  #EDE5D0
+     Brick-red upholstery  →  #7A2020
+     Wood slat ceiling     →  #7A5828
+
+   Fonts matched from images:
+     KHOJ sign         →  Montserrat 900 (geometric bold sans)
+     Menu script heads →  Dancing Script 700 (cursive category labels)
+     Content headings  →  Playfair Display 700 (classic serif)
+     Body              →  Montserrat 400/500
+═══════════════════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* ── Primary brand gold ── */
+  --color-khoj:         #C4892C;   /* exact KHOJ sign gold */
+  --color-khoj-light:   #DBA840;   /* hover/lighter gold   */
+  --color-led:          #FFD060;   /* interior LED strips  */
+  --color-led-soft:     #FFE8A0;   /* soft LED glow        */
+
+  /* ── Accent palette ── */
+  --color-copper:       #7A4520;   /* Brewing Happiness wall   */
+  --color-brick:        #7A2020;   /* upholstery brick red     */
+  --color-wood:         #7A5828;   /* wood slat ceiling        */
+
+  /* ── Backgrounds ── */
+  --color-dark:         #1E1A10;   /* building charcoal dark   */
+  --color-dark-mid:     #2A2010;   /* slightly lighter dark    */
+  --color-cream:        #F0EBD5;   /* signage/interior cream   */
+  --color-cream-light:  #F8F4EC;   /* very light cream         */
+  --color-warm-wall:    #EDE5D0;   /* interior wall color      */
+
+  /* ── Compatibility aliases (keep existing class names working) ── */
+  --color-teal:         #C4892C;
+  --color-teal-dark:    #A06820;
+  --color-teal-deeper:  #1E1A10;
+  --color-teal-light:   #F0EBD5;
+  --color-teal-pale:    #F8F4EC;
+  --color-teal-facade:  #EDE5D0;
+  --color-gold:         #C4892C;
+  --color-gold-light:   #DBA840;
+  --color-neon-pink:    #7A4520;
+  --color-neon-amber:   #FFD060;
+  --color-black:        #1E1A10;
+  --color-charcoal:     #2A2010;
+  --color-parchment:    #EDE5D0;
+  --color-muted:        #8A7A5A;
+  --color-white:        #FFFFFF;
+
+  /* ── Font stacks — next/font injects CSS vars on <html> ── */
+  --font-display: var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
+  --font-script:  var(--font-dancing),    'Dancing Script', cursive;
+  --font-serif:   var(--font-playfair),   'Playfair Display', Georgia, serif;
+  --font-sans:    var(--font-montserrat), 'Montserrat', system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ─── Base ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: #1E1A10;
+  color: #F0EBD5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-serif); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar            { width: 5px; }
+::-webkit-scrollbar-track      { background: #2A2010; }
+::-webkit-scrollbar-thumb      { background: #C4892C; border-radius: 4px; }
+
+/* ─── Keyframes ─────────────────────────────────────── */
+
+@keyframes led-pulse {
+  0%, 100% { opacity: 0.75; filter: brightness(1);   }
+  50%       { opacity: 1;    filter: brightness(1.15); }
+}
+
+@keyframes gold-shimmer {
+  0%   { background-position: -400% 0; }
+  100% { background-position:  400% 0; }
+}
+
+@keyframes float-photo {
+  0%, 100% { transform: translateY(0) rotate(-3deg) scale(1);   }
+  33%       { transform: translateY(-18px) rotate(3deg) scale(1.04); }
+  66%       { transform: translateY(-8px) rotate(-2deg) scale(0.98); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes draw-wave {
+  from { stroke-dashoffset: 800; opacity: 0; }
+  5%   { opacity: 1; }
+  to   { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* ─── Utility Classes ───────────────────────────────── */
+
+/* Primary brand gradient */
+.khoj-gradient {
+  background: linear-gradient(135deg, #C4892C 0%, #A06820 100%);
+}
+
+/* Gold shimmer — CTA buttons */
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    #C4892C 0%,
+    #DBA840 25%,
+    #FFD060 45%,
+    #DBA840 65%,
+    #C4892C 100%
+  );
+  background-size: 300% 100%;
+  animation: gold-shimmer 3s linear infinite;
+}
+
+/* Copper gradient — accent sections */
+.copper-gradient {
+  background: linear-gradient(135deg, #7A4520 0%, #9A5530 50%, #7A4520 100%);
+}
+
+/* ── LED Wave Divider ──
+   Replicates the interior golden LED strip curves exactly */
+.led-wave-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+.led-wave-container svg {
+  display: block;
+  width: 100%;
+}
+
+/* LED glow text effect */
+.led-text {
+  color: #FFD060;
+  text-shadow:
+    0 0 8px rgba(255,208,96,0.9),
+    0 0 20px rgba(255,208,96,0.6),
+    0 0 40px rgba(255,208,96,0.35);
+  animation: led-pulse 3s ease-in-out infinite;
+}
+
+/* Khoj brand name — Montserrat Black */
+.khoj-wordmark {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #C4892C;
+  text-shadow: 0 0 20px rgba(196,137,44,0.35);
+}
+
+/* Script decorative text — Dancing Script */
+.khoj-script {
+  font-family: var(--font-script);
+  font-weight: 700;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+.card-lift:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 24px 48px rgba(196,137,44,0.18), 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background: rgba(30,26,16,0.90);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Form fields */
+.form-field {
+  background: rgba(196,137,44,0.06);
+  border: 1.5px solid rgba(196,137,44,0.25);
+  color: #1E1A10;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-field:focus {
+  outline: none;
+  border-color: #C4892C;
+  box-shadow: 0 0 0 3px rgba(196,137,44,0.18);
+}
+
+/* Category badge */
+.cat-badge {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Interior panel — warm cream (light sections) */
+.interior-panel {
+  background: linear-gradient(160deg, #F0EBD5 0%, #F8F4EC 50%, #EDE5D0 100%);
+}
+
+/* Dark panel — charcoal exterior */
+.dark-panel {
+  background: linear-gradient(160deg, #1E1A10 0%, #2A2010 50%, #1E1A10 100%);
 }
