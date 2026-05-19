@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { LedBanner } from "@/components/LedWave";
 
 /* ── Khoj logo SVG — matches the actual wheat/plant icon on the sign ── */
 function KhojLogo({ size = 36 }: { size?: number }) {
@@ -71,10 +70,7 @@ export default function Navbar() {
         }`}
         style={scrolled || !isHome ? { background: DARK, backdropFilter: "blur(16px)" } : {}}
       >
-        {/* LED wave divider — replicates interior wall LED strips */}
-        <LedBanner color="#FFD060" opacity={0.5} height={18} waves={12} />
-
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 md:h-18 flex items-center justify-between">
 
           {/* ── Logo ── */}
           <Link href="/" className="flex items-center gap-3">

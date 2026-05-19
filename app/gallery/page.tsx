@@ -55,14 +55,11 @@ export default function GalleryPage() {
       <GalleryLightbox tiles={filtered} activeIndex={activeIndex} onClose={() => setActiveIndex(null)} onPrev={prev} onNext={next} />
 
       {/* Hero */}
-      <section className="relative pt-28 pb-24 overflow-hidden" style={{ background: "#1E1A10" }}>
+      <section className="relative pt-24 sm:pt-28 pb-16 sm:pb-24 overflow-hidden" style={{ background: "#1E1A10" }}>
         <div className="absolute inset-0">
           <Image src="https://images.unsplash.com/photo-1554118811-1e0d0a7e1d7f?w=1920&q=85&fit=crop&auto=format" alt="Khoj cafe" fill className="object-cover opacity-22" unoptimized />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom,rgba(26,18,0,0.55),rgba(26,18,0,0.92))" }} />
         </div>
-
-        <div className="absolute top-0 inset-x-0 wave-led" />
-        <div className="absolute bottom-0 inset-x-0 wave-led" />
 
         <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
@@ -100,7 +97,7 @@ export default function GalleryPage() {
       </section>
 
       {/* Filter + Grid */}
-      <section className="py-16" style={{ background: "#FAF5EA" }}>
+      <section className="py-10 sm:py-16" style={{ background: "#FAF5EA" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Filter tabs */}

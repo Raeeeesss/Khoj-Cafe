@@ -103,12 +103,11 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-28 pb-22 overflow-hidden" style={{ background: "#1E1A10" }}>
+      <section className="relative pt-24 sm:pt-28 pb-14 sm:pb-20 overflow-hidden" style={{ background: "#1E1A10" }}>
         <div className="absolute inset-0">
           <Image src="https://images.unsplash.com/photo-1554118811-1e0d0a7e1d7f?w=1920&q=85&fit=crop&auto=format" alt="Khoj cafe" fill className="object-cover opacity-20" unoptimized />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom,rgba(26,18,0,0.6),rgba(26,18,0,0.92))" }} />
         </div>
-        <div className="absolute top-0 inset-x-0 wave-led" />
         <FloatingFoods count={5} opacity={0.16} />
 
         <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
@@ -130,7 +129,7 @@ export default function ContactPage() {
       </section>
 
       {/* Info + Form */}
-      <section className="py-20" style={{ background: "#FAF5EA" }}>
+      <section className="py-10 sm:py-20" style={{ background: "#FAF5EA" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-10">
 
@@ -142,7 +141,6 @@ export default function ContactPage() {
                 className="rounded-3xl p-7 relative overflow-hidden"
                 style={{ background: "linear-gradient(135deg,#1E1A10,#2A2010)" }}
               >
-                <div className="absolute top-0 inset-x-0 wave-led opacity-60" />
                 <div className="flex items-start gap-4">
                   <div className="w-11 h-11 rounded-xl shrink-0 flex items-center justify-center gold-shimmer">
                     <MapPin size={20} className="text-black" />
@@ -235,7 +233,6 @@ export default function ContactPage() {
 
                 {/* Form header */}
                 <div className="relative p-8 text-center overflow-hidden" style={{ background: "linear-gradient(135deg,#1E1A10,#2A2010)" }}>
-                  <div className="absolute top-0 inset-x-0 wave-led opacity-70" />
                   <h2 className="text-white mb-1" style={{ fontFamily: "var(--font-dancing)", fontSize: "2.4rem" }}>Reserve Your Table</h2>
                   <p className="text-white/55 text-sm mb-5">Confirmed via WhatsApp within 30 minutes.</p>
 
@@ -350,7 +347,7 @@ export default function ContactPage() {
             className="mt-10 rounded-3xl overflow-hidden border" style={{ borderColor: "rgba(212,168,67,0.2)", boxShadow: "0 8px 32px rgba(26,18,0,0.12)" }}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3912.6!2d75.7804!3d11.2520!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba6595179eb3a05%3A0x95ee0b1cdc21b3ad!2sKhoj+Cafe+Calicut!5e0!3m2!1sen!2sin!4v1"
-              width="100%" height="380"
+              width="100%" height="260"
               style={{ border: 0, display: "block" }}
               allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
               title="Khoj Calicut location map"

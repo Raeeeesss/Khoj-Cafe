@@ -60,18 +60,16 @@ export default function AboutPage() {
       <section className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden">
 
         {/* Left — photo */}
-        <div className="relative lg:w-1/2 h-72 lg:h-auto overflow-hidden">
+        <div className="relative lg:w-1/2 h-64 sm:h-80 lg:h-auto overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1559339352-11d035aa65ce?w=1200&q=90&fit=crop&auto=format"
             alt="Khoj Calicut interior" fill priority className="object-cover" unoptimized
           />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to right,transparent 0%,rgba(26,18,0,0.25) 60%,rgba(26,18,0,0.88) 100%)" }} />
-          {/* LED top strip */}
-          <div className="absolute top-0 inset-x-0 wave-led" />
         </div>
 
         {/* Right — content */}
-        <div className="relative lg:w-1/2 flex items-center px-8 sm:px-12 lg:px-16 pt-32 lg:pt-0 pb-16 lg:pb-0">
+        <div className="relative lg:w-1/2 flex items-center px-6 sm:px-12 lg:px-16 pt-10 sm:pt-16 lg:pt-0 pb-12 lg:pb-0">
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 60% at 60% 40%,rgba(212,168,67,0.06) 0%,transparent 70%)" }} />
 
           <div className="relative z-10 max-w-xl">
@@ -125,7 +123,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Timeline ─────────────────────────── */}
-      <section ref={tlRef} className="py-24 lg:py-32" style={{ background: "#111108" }}>
+      <section ref={tlRef} className="py-14 sm:py-24 lg:py-32" style={{ background: "#111108" }}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={stagger} initial="hidden" animate={tlInView ? "visible" : "hidden"} className="text-center mb-16">
             <motion.p variants={fadeUp} className="text-xs font-semibold tracking-[0.35em] uppercase mb-3" style={{ color: GOLD }}>How We Got Here</motion.p>
@@ -169,7 +167,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Values ───────────────────────────── */}
-      <section ref={valRef} className="py-24 lg:py-32" style={{ background: "#FAF5EA" }}>
+      <section ref={valRef} className="py-14 sm:py-24 lg:py-32" style={{ background: "#FAF5EA" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={stagger} initial="hidden" animate={valInView ? "visible" : "hidden"} className="text-center mb-14">
             <motion.p variants={fadeUp} className="text-xs font-semibold tracking-[0.35em] uppercase mb-3" style={{ color: GOLD }}>What We Stand For</motion.p>

@@ -180,7 +180,7 @@ export default function MenuPage() {
       <MenuItemModal item={selectedItem} onClose={() => setSelectedItem(null)} />
 
       {/* ── Hero ───────────────────────────────── */}
-      <section className="relative pt-28 pb-24 overflow-hidden" style={{ background: "#1E1A10" }}>
+      <section className="relative pt-24 sm:pt-28 pb-16 sm:pb-24 overflow-hidden" style={{ background: "#1E1A10" }}>
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1920&q=85&fit=crop&auto=format"
@@ -192,9 +192,6 @@ export default function MenuPage() {
 
         <FloatingFoods count={6} opacity={0.22} />
 
-        {/* LED lines */}
-        <div className="absolute top-0 inset-x-0 wave-led" />
-        <div className="absolute bottom-0 inset-x-0 wave-led" />
 
         <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
@@ -247,7 +244,7 @@ export default function MenuPage() {
 
           {/* Category tabs */}
           {!search && (
-            <div className="flex flex-wrap justify-center gap-2 mb-12">
+            <div className="flex flex-wrap justify-center gap-2 mb-8 sm:mb-12">
               {categories.map(cat => (
                 <motion.button
                   key={cat.id}

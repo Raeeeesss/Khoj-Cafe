@@ -78,7 +78,7 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background: #1E1A10;
+  background: #120A0A;
   color: #F0EBD5;
   overflow-x: hidden;
 }
@@ -87,8 +87,8 @@ h1, h2, h3, h4 { font-family: var(--font-serif); }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar            { width: 5px; }
-::-webkit-scrollbar-track      { background: #2A2010; }
-::-webkit-scrollbar-thumb      { background: #C4892C; border-radius: 4px; }
+::-webkit-scrollbar-track      { background: #1E0F0F; }
+::-webkit-scrollbar-thumb      { background: linear-gradient(#8B2020, #C4892C); border-radius: 4px; }
 
 /* ─── Keyframes ─────────────────────────────────────── */
 
